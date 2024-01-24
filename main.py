@@ -6,7 +6,7 @@ import datetime
 
 loosers_url = 'https://puppeteer-jibberish-deploy-cb9882febdc1.herokuapp.com'
 loosers_response = requests.get(loosers_url)
-result_json_content = loosers_response
+result_json_content = loosers_response.text
 
 print("got this response from puppeteer: ")
 print(result_json_content)
