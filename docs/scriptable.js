@@ -1,7 +1,11 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
 // icon-color: red; icon-glyph: magic;
-const dataUrl = "https://edalessio.github.io/loserStocks/result.json";
+
+
+const dataUrl = "https://edalessio.github.io/jibTemperatureProxy/result.json";
+// {"datetimeFromSensoredLife":"Last Read: Wednesday, January 24, 2024 at 1:06 PM","temp":"72°F"}
+
 
 let widget = await createWidget();
 Script.setWidget(widget);
@@ -13,19 +17,15 @@ async function createWidget() {
 
     const data = await new Request(dataUrl).loadJSON();
 
-    let titleRow = widget.addText(`Losers ${data.timestamp}`);
+    let titleRow = widget.addText(`Date ${data.datetimeFromSensoredLife}`);
     titleRow.font = Font.boldSystemFont(15);
     titleRow.textColor = Color.white();
     widget.addSpacer(5);
 
-    for (i = 0; i < 7; i++) {
-        const looser = data.loosers[i];
-        let row = leftColumn.addText(`
-            ${looser.ticker} 
-            ${looser.change}
-        `);
-        row.font = Font.semiboldSystemFont(14);
-    }
+    let nextRow = widget.addText(`JibTemp ${data.temp}`);
+    titleRow.font = Font.boldSystemFont(15);
+    titleRow.textColor = Color.white();
+    widget.addSpacer(5);
 
     let gradient = new LinearGradient()
     
