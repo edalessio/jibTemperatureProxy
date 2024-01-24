@@ -8,6 +8,9 @@ loosers_url = 'https://puppeteer-jibberish-deploy-cb9882febdc1.herokuapp.com'
 loosers_response = requests.get(loosers_url)
 result_json_content = loosers_response
 
+print("got this response from puppeteer: ")
+print(result_json_content)
+
 loosers_json_filename = 'docs/result.json'
 if os.path.exists(loosers_json_filename):
   os.remove(loosers_json_filename)
