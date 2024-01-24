@@ -19,4 +19,4 @@ if os.path.exists(loosers_json_filename):
   os.remove(loosers_json_filename)
 
 with open(loosers_json_filename, 'a') as loosers_json_file:
-  loosers_json_file.write(result_json_content)
+  loosers_json_file.write(result_json_content[0])
