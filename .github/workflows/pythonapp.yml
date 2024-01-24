@@ -35,4 +35,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add docs/result.json -f
         git commit -m "Update docs/result.json" -a
-        git push "https://makma:${{ secrets.PERSONAL_TOKEN }}@github.com/edalessio/jibTemperatureProxy.git" HEAD:main --follow-tags
+        git push "https://edalessio:${{ secrets.PERSONAL_TOKEN }}@github.com/edalessio/jibTemperatureProxy.git" HEAD:main --follow-tags
