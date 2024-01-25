@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron:  '0 13-23 * * 1-5'
+    - cron:  '0 */2 * * *'
 
 jobs:
   build:
@@ -33,6 +33,6 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/result.json -f
+        git add docs/result.json -f --no-assume-unchanged
         git commit -m "Update docs/result.json" -a
         git push "https://edalessio:${{ secrets.PERSONAL_TOKEN }}@github.com/edalessio/jibTemperatureProxy.git" HEAD:main --follow-tags
